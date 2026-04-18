@@ -29,13 +29,24 @@ export class HttpExceptionFilter implements ExceptionFilter {
             'Internal server error'
           : 'Internal server error';
 
+    const errorName =
+      exception instanceof HttpException
+        ? exception.name
+        : 'InternalServerError';
+
+    // Log non-HTTP errors for debugging
+    if (!(exception instanceof HttpException)) {
+      console.error('Unhandled exception:', exception);
+    }
+
     response.status(status).json({
       statusCode: status,
       message,
-      error:
-        exception instanceof HttpException
-          ? exception.name
-          : 'InternalServerError',
+      error: errorName,
+      ...(!(exception instanceof HttpException) && {
+          debug: exception instanceof Error ? exception.message : String(exception),
+          stack: exception instanceof Error ? exception.stack?.split('\n').slice(0, 3) : undefined,
+        }),
       timestamp: new Date().toISOString(),
     });
   }
