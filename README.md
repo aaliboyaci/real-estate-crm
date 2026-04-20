@@ -314,8 +314,9 @@ The frontend reads `NUXT_PUBLIC_API_BASE` from environment or defaults to `http:
 | **Frontend** | https://frontend-aaliboyacis-projects.vercel.app |
 | **Backend API** | https://backend-topaz-xi-84.vercel.app/api |
 | **Swagger Docs** | https://backend-topaz-xi-84.vercel.app/api/docs |
+| **GitHub Repo** | https://github.com/aaliboyaci/real-estate-crm |
 
-Both are deployed on **Vercel** with **MongoDB Atlas** as the database.
+Both frontend and backend are deployed on **Vercel** with **MongoDB Atlas** as the database. The database is seeded with sample data (5 agents, 15 transactions, 5 commissions).
 
 ---
 
