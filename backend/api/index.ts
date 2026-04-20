@@ -10,6 +10,38 @@ import { TransformInterceptor } from '../src/common/interceptors/transform.inter
 const expressApp = express();
 let isReady = false;
 let bootError: Error | null = null;
+let openApiDocument: Record<string, unknown> | null = null;
+
+// Serve Swagger UI via CDN (registered before NestJS to take priority)
+expressApp.get('/api/docs', (_req: Request, res: Response) => {
+  res.send(`<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Real Estate CRM API</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swagger-ui-dist@5/swagger-ui.css">
+  <style>body { margin: 0; } .topbar { display: none; }</style>
+</head>
+<body>
+  <div id="swagger-ui"></div>
+  <script src="https://cdn.jsdelivr.net/npm/swagger-ui-dist@5/swagger-ui-bundle.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swagger-ui-dist@5/swagger-ui-standalone-preset.js"></script>
+  <script>
+    SwaggerUIBundle({
+      url: '/api/docs-json',
+      dom_id: '#swagger-ui',
+      presets: [SwaggerUIBundle.presets.apis, SwaggerUIStandalonePreset],
+      layout: 'StandaloneLayout'
+    });
+  </script>
+</body>
+</html>`);
+});
+
+expressApp.get('/api/docs-json', (_req: Request, res: Response) => {
+  if (!openApiDocument) return res.status(503).json({ error: 'Not ready' });
+  res.json(openApiDocument);
+});
 
 async function bootstrap() {
   try {
@@ -41,11 +73,7 @@ async function bootstrap() {
       .setDescription('Transaction management and commission distribution API')
       .setVersion('1.0')
       .build();
-    const document = SwaggerModule.createDocument(app, swaggerConfig);
-    SwaggerModule.setup('api/docs', app, document, {
-      customCssUrl: 'https://cdn.jsdelivr.net/npm/swagger-ui-dist@5/swagger-ui.css',
-      customJs: 'https://cdn.jsdelivr.net/npm/swagger-ui-dist@5/swagger-ui-bundle.js',
-    });
+    openApiDocument = SwaggerModule.createDocument(app, swaggerConfig) as unknown as Record<string, unknown>;
 
     await app.init();
     isReady = true;
