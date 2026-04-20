@@ -307,6 +307,18 @@ The frontend reads `NUXT_PUBLIC_API_BASE` from environment or defaults to `http:
 
 ---
 
+## Live Demo
+
+| Service | URL |
+|---------|-----|
+| **Frontend** | https://frontend-omega-vert-zyuog1jesw.vercel.app |
+| **Backend API** | https://backend-topaz-xi-84.vercel.app/api |
+| **Swagger Docs** | https://backend-topaz-xi-84.vercel.app/api/docs |
+
+Both are deployed on **Vercel** with **MongoDB Atlas** as the database.
+
+---
+
 ## Deployment
 
 ### Database
@@ -317,7 +329,7 @@ The frontend reads `NUXT_PUBLIC_API_BASE` from environment or defaults to `http:
 
 ### Backend
 
-Deploy to [Railway](https://railway.app), [Render](https://render.com), or any Node.js hosting:
+Deploy to [Vercel](https://vercel.com) or any Node.js hosting:
 
 ```bash
 cd backend
@@ -336,4 +348,4 @@ cd frontend
 npm run build
 ```
 
-Set `NUXT_PUBLIC_API_BASE` to your deployed backend URL (e.g., `https://your-api.railway.app/api`).
+Set `NUXT_PUBLIC_API_BASE` to your deployed backend URL (e.g., `https://your-api.vercel.app/api`).
