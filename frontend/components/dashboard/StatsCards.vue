@@ -15,8 +15,9 @@
         card.hero ? 'text-stone-400' : 'text-stone-500'
       ]">{{ card.label }}</p>
       <p :class="[
-        'text-3xl font-bold mt-2 tracking-tight',
-        card.hero ? 'text-white' : 'text-stone-900'
+        'font-bold mt-2 tracking-tight',
+        card.hero ? 'text-white' : 'text-stone-900',
+        card.isName ? 'text-xl' : 'text-3xl'
       ]">
         <template v-if="loading">--</template>
         <template v-else>{{ card.value }}</template>
@@ -57,6 +58,7 @@ const cards = computed(() => [
       ? `${props.stats.topAgents[0].firstName} ${props.stats.topAgents[0].lastName}`
       : '--',
     hero: false,
+    isName: true,
   },
 ]);
 </script>

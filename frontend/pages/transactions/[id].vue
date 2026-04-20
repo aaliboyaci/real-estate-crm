@@ -2,6 +2,11 @@
   <div v-if="store.loading" class="text-center py-12 text-stone-400">Loading...</div>
 
   <div v-else-if="tx" class="space-y-6">
+    <!-- Back Link -->
+    <NuxtLink to="/transactions" class="inline-flex items-center gap-1 text-sm text-stone-400 hover:text-stone-600 transition-colors">
+      <span>&larr;</span> Back to Pipeline
+    </NuxtLink>
+
     <!-- Stepper -->
     <UiBaseCard>
       <TransactionsTransactionStepper :current-stage="tx.currentStage" />

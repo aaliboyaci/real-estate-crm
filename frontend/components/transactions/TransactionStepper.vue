@@ -31,7 +31,7 @@
       <div
         v-if="index < stages.length - 1"
         :class="[
-          'flex-1 h-0.5 mx-3 mt-[-1.25rem]',
+          'flex-1 h-1 mx-3 mt-[-1.25rem] rounded-full',
           index < currentIndex ? 'bg-stone-900' : 'bg-stone-200',
         ]"
       />

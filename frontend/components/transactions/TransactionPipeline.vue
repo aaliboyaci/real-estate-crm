@@ -6,7 +6,7 @@
       class="space-y-3"
     >
       <!-- Column Header -->
-      <div class="flex items-center gap-2 pb-3 border-b border-stone-200">
+      <div class="flex items-center gap-2 p-3 bg-stone-50 rounded-xl">
         <UiBaseBadge :variant="badgeVariant(column.stage)">
           {{ column.label }}
         </UiBaseBadge>

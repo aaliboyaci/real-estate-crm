@@ -16,8 +16,8 @@
     </div>
 
     <div class="text-xs text-stone-400 space-y-1">
-      <p>L: {{ getAgentName(transaction.listingAgent) }}</p>
-      <p>S: {{ getAgentName(transaction.sellingAgent) }}</p>
+      <p><span class="text-stone-500">Listing:</span> {{ getAgentName(transaction.listingAgent) }}</p>
+      <p><span class="text-stone-500">Selling:</span> {{ getAgentName(transaction.sellingAgent) }}</p>
     </div>
 
     <button
@@ -26,6 +26,13 @@
       @click.stop="$emit('advance')"
     >
       Advance Stage &rarr;
+    </button>
+    <button
+      v-else
+      class="w-full text-xs bg-stone-100 hover:bg-stone-200 text-stone-500 rounded-xl py-2 font-medium transition-colors"
+      @click.stop="$emit('click')"
+    >
+      View Details &rarr;
     </button>
   </div>
 </template>
