@@ -311,7 +311,7 @@ The frontend reads `NUXT_PUBLIC_API_BASE` from environment or defaults to `http:
 
 | Service | URL |
 |---------|-----|
-| **Frontend** | https://frontend-omega-vert-zyuog1jesw.vercel.app |
+| **Frontend** | https://frontend-aaliboyacis-projects.vercel.app |
 | **Backend API** | https://backend-topaz-xi-84.vercel.app/api |
 | **Swagger Docs** | https://backend-topaz-xi-84.vercel.app/api/docs |
 
