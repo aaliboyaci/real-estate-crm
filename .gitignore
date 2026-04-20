@@ -35,6 +35,9 @@ coverage/
 # Project management (internal only)
 PLAN.md
 TASKS.md
+walkthrough.md
 
 # Misc
 *.tsbuildinfo
+
+.vercel
