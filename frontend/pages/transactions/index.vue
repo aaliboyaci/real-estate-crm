@@ -1,11 +1,11 @@
 <template>
   <div class="space-y-4">
     <div class="flex justify-between items-center">
-      <p class="text-sm text-slate-500">
+      <p class="text-sm text-stone-400 font-medium">
         {{ store.transactions.length }} transactions
       </p>
       <button
-        class="bg-slate-900 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-slate-800 transition-colors"
+        class="bg-stone-900 text-white px-5 py-2.5 rounded-2xl text-sm font-medium hover:bg-stone-800 transition-colors shadow-sm"
         @click="showForm = true"
       >
         + New Transaction

@@ -4,14 +4,14 @@
       v-if="modelValue"
       class="fixed inset-0 z-50 flex items-center justify-center"
     >
-      <div class="absolute inset-0 bg-black/50" @click="close" />
+      <div class="absolute inset-0 bg-black/40 backdrop-blur-sm" @click="close" />
       <div
-        class="relative bg-white rounded-xl shadow-xl w-full max-w-lg mx-4 max-h-[90vh] overflow-y-auto"
+        class="relative bg-white rounded-2xl shadow-2xl w-full max-w-lg mx-4 max-h-[90vh] overflow-y-auto"
       >
-        <div class="flex items-center justify-between px-6 py-4 border-b border-slate-100">
-          <h3 class="text-lg font-semibold text-slate-800">{{ title }}</h3>
+        <div class="flex items-center justify-between px-6 py-5 border-b border-stone-100">
+          <h3 class="text-lg font-bold text-stone-900">{{ title }}</h3>
           <button
-            class="text-slate-400 hover:text-slate-600 text-xl"
+            class="text-stone-300 hover:text-stone-600 text-xl transition-colors"
             @click="close"
           >
             &times;

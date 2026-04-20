@@ -6,11 +6,11 @@
       class="space-y-3"
     >
       <!-- Column Header -->
-      <div class="flex items-center gap-2 pb-2 border-b-2" :class="borderColor(column.stage)">
+      <div class="flex items-center gap-2 pb-3 border-b border-stone-200">
         <UiBaseBadge :variant="badgeVariant(column.stage)">
           {{ column.label }}
         </UiBaseBadge>
-        <span class="text-xs text-slate-400 font-medium">{{ column.items.length }}</span>
+        <span class="text-xs text-stone-400 font-medium">{{ column.items.length }}</span>
       </div>
 
       <!-- Cards -->

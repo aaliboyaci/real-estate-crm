@@ -20,7 +20,7 @@
         <p
           :class="[
             'text-xs mt-2 font-medium',
-            index <= currentIndex ? 'text-slate-800' : 'text-slate-400',
+            index <= currentIndex ? 'text-stone-900' : 'text-stone-400',
           ]"
         >
           {{ stage.label }}
@@ -32,7 +32,7 @@
         v-if="index < stages.length - 1"
         :class="[
           'flex-1 h-0.5 mx-3 mt-[-1.25rem]',
-          index < currentIndex ? 'bg-emerald-500' : 'bg-slate-200',
+          index < currentIndex ? 'bg-stone-900' : 'bg-stone-200',
         ]"
       />
     </div>
@@ -58,8 +58,8 @@ const currentIndex = computed(() =>
 );
 
 function getStepClass(index: number) {
-  if (index < currentIndex.value) return 'bg-emerald-500 border-emerald-500 text-white';
-  if (index === currentIndex.value) return 'bg-slate-900 border-slate-900 text-white';
-  return 'bg-white border-slate-300 text-slate-400';
+  if (index < currentIndex.value) return 'bg-stone-900 border-stone-900 text-white';
+  if (index === currentIndex.value) return 'bg-stone-900 border-stone-900 text-white shadow-md';
+  return 'bg-white border-stone-200 text-stone-400';
 }
 </script>

@@ -1,28 +1,28 @@
 <template>
   <div
-    class="bg-white rounded-lg border border-slate-200 p-4 hover:shadow-md transition-shadow cursor-pointer space-y-3"
+    class="bg-white rounded-2xl border border-stone-200/60 p-5 hover:shadow-md hover:border-stone-300 transition-all cursor-pointer space-y-3"
     @click="$emit('click')"
   >
     <div>
-      <p class="text-sm font-medium text-slate-800 line-clamp-1">{{ transaction.propertyAddress }}</p>
+      <p class="text-sm font-semibold text-stone-900 line-clamp-1">{{ transaction.propertyAddress }}</p>
       <div class="flex items-center gap-2 mt-1">
         <UiBaseBadge :variant="transaction.type === 'sale' ? 'slate' : 'blue'">
           {{ transaction.type }}
         </UiBaseBadge>
-        <span class="text-xs text-slate-400">
+        <span class="text-xs text-stone-500 font-medium">
           {{ formatCents(transaction.serviceFeeCents) }}
         </span>
       </div>
     </div>
 
-    <div class="text-xs text-slate-500 space-y-1">
+    <div class="text-xs text-stone-400 space-y-1">
       <p>L: {{ getAgentName(transaction.listingAgent) }}</p>
       <p>S: {{ getAgentName(transaction.sellingAgent) }}</p>
     </div>
 
     <button
       v-if="showAdvance"
-      class="w-full text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-md py-1.5 font-medium transition-colors"
+      class="w-full text-xs bg-stone-900 hover:bg-stone-800 text-white rounded-xl py-2 font-medium transition-colors"
       @click.stop="$emit('advance')"
     >
       Advance Stage &rarr;

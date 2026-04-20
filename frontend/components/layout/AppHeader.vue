@@ -1,6 +1,6 @@
 <template>
-  <header class="bg-white border-b border-slate-200 px-6 py-4">
-    <h2 class="text-xl font-semibold text-slate-800">{{ pageTitle }}</h2>
+  <header class="px-8 py-6">
+    <h2 class="text-2xl font-bold text-stone-900 tracking-tight">{{ pageTitle }}</h2>
   </header>
 </template>
 

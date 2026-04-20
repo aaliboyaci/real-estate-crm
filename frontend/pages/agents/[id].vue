@@ -1,30 +1,30 @@
 <template>
-  <div v-if="store.loading" class="text-center py-12 text-slate-400">Loading...</div>
+  <div v-if="store.loading" class="text-center py-12 text-stone-400">Loading...</div>
 
   <div v-else-if="agent" class="space-y-6">
     <!-- Agent Info -->
     <UiBaseCard>
       <div class="flex items-center gap-4">
-        <div class="w-16 h-16 rounded-full bg-slate-200 flex items-center justify-center text-xl font-bold text-slate-600">
+        <div class="w-16 h-16 rounded-full bg-stone-900 flex items-center justify-center text-xl font-bold text-white">
           {{ agent.firstName[0] }}{{ agent.lastName[0] }}
         </div>
         <div>
-          <h3 class="text-lg font-bold text-slate-800">{{ agent.firstName }} {{ agent.lastName }}</h3>
-          <p class="text-sm text-slate-500">{{ agent.email }}</p>
-          <p v-if="agent.phone" class="text-sm text-slate-400">{{ agent.phone }}</p>
+          <h3 class="text-lg font-bold text-stone-900">{{ agent.firstName }} {{ agent.lastName }}</h3>
+          <p class="text-sm text-stone-400">{{ agent.email }}</p>
+          <p v-if="agent.phone" class="text-sm text-stone-400">{{ agent.phone }}</p>
         </div>
       </div>
     </UiBaseCard>
 
     <!-- Commissions -->
     <UiBaseCard title="Commission History">
-      <div v-if="commissionsLoading" class="text-center py-4 text-sm text-slate-400">Loading...</div>
-      <div v-else-if="commissions.length === 0" class="text-center py-4 text-sm text-slate-400">
+      <div v-if="commissionsLoading" class="text-center py-4 text-sm text-stone-400">Loading...</div>
+      <div v-else-if="commissions.length === 0" class="text-center py-4 text-sm text-stone-400">
         No commissions yet
       </div>
       <table v-else class="w-full text-sm">
         <thead>
-          <tr class="text-left text-slate-500 border-b border-slate-100">
+          <tr class="text-left text-stone-400 border-b border-stone-100">
             <th class="pb-2 font-medium">Transaction</th>
             <th class="pb-2 font-medium">Role</th>
             <th class="pb-2 font-medium text-right">Amount</th>
@@ -32,8 +32,8 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="c in commissions" :key="c._id" class="border-b border-slate-50">
-            <td class="py-2.5 text-slate-700">
+          <tr v-for="c in commissions" :key="c._id" class="border-b border-stone-50">
+            <td class="py-3 text-stone-700">
               {{ typeof c.transaction === 'string' ? c.transaction : c.transaction.propertyAddress || c.transaction._id }}
             </td>
             <td class="py-2.5">
@@ -41,18 +41,18 @@
                 {{ getBreakdown(c)?.role ?? '-' }}
               </UiBaseBadge>
             </td>
-            <td class="py-2.5 text-right font-medium text-emerald-600">
+            <td class="py-2.5 text-right font-semibold text-stone-900">
               {{ formatCents(getBreakdown(c)?.amountCents ?? 0) }}
             </td>
-            <td class="py-2.5 text-right text-slate-400">
+            <td class="py-2.5 text-right text-stone-400">
               {{ new Date(c.calculatedAt).toLocaleDateString() }}
             </td>
           </tr>
         </tbody>
         <tfoot>
-          <tr class="border-t border-slate-200 font-bold">
+          <tr class="border-t border-stone-200 font-bold">
             <td colspan="2" class="pt-3">Total Earnings</td>
-            <td class="pt-3 text-right text-emerald-600">{{ formatCents(totalEarnings) }}</td>
+            <td class="pt-3 text-right text-stone-900 font-semibold">{{ formatCents(totalEarnings) }}</td>
             <td></td>
           </tr>
         </tfoot>

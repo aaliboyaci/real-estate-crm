@@ -1,10 +1,12 @@
 <template>
-  <div class="min-h-screen bg-slate-50 flex">
+  <div class="min-h-screen bg-stone-100 flex">
     <LayoutAppSidebar />
     <div class="flex-1 flex flex-col ml-64">
       <LayoutAppHeader />
-      <main class="flex-1 p-6">
-        <slot />
+      <main class="flex-1 p-8">
+        <div class="bg-white/60 rounded-2xl p-6 min-h-full backdrop-blur-sm">
+          <slot />
+        </div>
       </main>
     </div>
     <!-- Toast notifications -->
@@ -13,10 +15,10 @@
         v-for="toast in toasts"
         :key="toast.id"
         :class="[
-          'px-4 py-3 rounded-lg shadow-lg text-sm font-medium transition-all',
-          toast.type === 'success' && 'bg-emerald-500 text-white',
-          toast.type === 'error' && 'bg-red-500 text-white',
-          toast.type === 'info' && 'bg-slate-700 text-white',
+          'px-5 py-3.5 rounded-2xl shadow-lg text-sm font-medium transition-all',
+          toast.type === 'success' && 'bg-stone-900 text-white',
+          toast.type === 'error' && 'bg-red-600 text-white',
+          toast.type === 'info' && 'bg-stone-800 text-white',
         ]"
       >
         {{ toast.message }}

@@ -1,8 +1,8 @@
 <template>
-  <aside class="fixed left-0 top-0 h-full w-64 bg-slate-900 text-white flex flex-col z-40">
-    <div class="p-6 border-b border-slate-700">
-      <h1 class="text-lg font-bold tracking-tight">Real Estate CRM</h1>
-      <p class="text-xs text-slate-400 mt-1">Transaction Management</p>
+  <aside class="fixed left-0 top-0 h-full w-64 bg-white border-r border-stone-200 text-stone-700 flex flex-col z-40">
+    <div class="p-6 border-b border-stone-100">
+      <h1 class="text-lg font-bold tracking-tight text-stone-900">Real Estate CRM</h1>
+      <p class="text-xs text-stone-400 mt-1">Transaction Management</p>
     </div>
 
     <nav class="flex-1 py-4">
@@ -10,16 +10,16 @@
         v-for="item in navItems"
         :key="item.path"
         :to="item.path"
-        class="flex items-center gap-3 px-6 py-3 text-sm font-medium transition-colors hover:bg-slate-800"
-        active-class="bg-slate-800 text-emerald-400 border-r-2 border-emerald-400"
+        class="flex items-center gap-3 px-6 py-3 text-sm font-medium transition-colors hover:bg-stone-50 text-stone-500"
+        active-class="bg-stone-100 text-stone-900 border-r-2 border-stone-900"
       >
         <svg class="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" v-html="item.icon" />
         {{ item.label }}
       </NuxtLink>
     </nav>
 
-    <div class="p-4 border-t border-slate-700">
-      <p class="text-xs text-slate-500">v1.0.0</p>
+    <div class="p-4 border-t border-stone-100">
+      <p class="text-xs text-stone-400">v1.0.0</p>
     </div>
   </aside>
 </template>
